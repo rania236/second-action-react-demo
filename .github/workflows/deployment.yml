@@ -39,3 +39,9 @@ jobs:
         run: echo "Simulated deployment complete ..."
       - name: Cleanup
         run: echo "Cleaning up runner workspace..."
+  notify:
+    needs: [test ,deploy]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Notify team
+      run: echo "Deployment finished — notifying team!"
