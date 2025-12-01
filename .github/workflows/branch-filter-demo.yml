@@ -1,0 +1,12 @@
+on:
+  push:
+    branches:
+      - release-*
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Announce
+        run: echo "New release branch detected — running build!"
