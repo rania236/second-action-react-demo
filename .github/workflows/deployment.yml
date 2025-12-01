@@ -6,8 +6,10 @@ on:
       - main
 
   pull_request:
-    types: [opened]
+    types: [opened, reopened, edited]
     branches: [main]
+  issues:
+    types: [opened, closed]
 
   workflow_dispatch:
 
@@ -45,6 +47,9 @@ jobs:
         run: echo "Simulated deployment complete ..."
       - name: Cleanup
         run: echo "Cleaning up runner workspace..."
+      - name: Report issue event
+        run: echo "An issue was ${{ github.event.action }}"
+
   notify:
     needs: [test ,deploy]
     runs-on: ubuntu-latest
