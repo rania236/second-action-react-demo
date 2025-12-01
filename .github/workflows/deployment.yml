@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+      - dev-*      # any branch starting with “dev-”
+      - release-*
+      - feat/**    # any branch starting with “feat/” (can include slashes)
+    paths-ignore:
+      - .github/workflows/**
 
   pull_request:
     types: [opened, reopened, edited]
