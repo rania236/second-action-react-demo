@@ -1,0 +1,13 @@
+on:
+  pull_request:
+    types: [closed]
+  workflow_dispatch:
+
+jobs:
+  print-message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Print deployment cleanup message
+        run: echo "PR closed — deployment ready for cleanup!"
