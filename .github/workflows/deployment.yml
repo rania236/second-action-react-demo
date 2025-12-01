@@ -24,7 +24,7 @@ jobs:
 
       - name: Run tests
         run: npm test
-      - name: Install and test
+      - name: Install andd test
         run: |
           npm ci
           npm test
